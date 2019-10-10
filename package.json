@@ -1,0 +1,98 @@
+{
+  "name": "ERC1400",
+  "version": "0.1.0-dev",
+  "description": "CoFi's ERC1400 implementation",
+  "files": [
+    "contracts",
+    "tests"
+  ],
+  "scripts": {
+    "build:ERC1400ERC20": "sol-merger \"./contracts/token/ERC20/ERC1400ERC20.sol\" ./artifacts",
+    "build:MWT": "sol-merger \"./contracts/MWT.sol\" ./artifacts",
+    "build:MINTERESTS": "sol-merger \"./contracts/minterests.sol\" ./artifacts",
+    "build": "yarn run clean && yarn run build:ERC1400ERC20",
+    "clean": "rm -rf artifacts",
+    "coverage": "solidity-coverage",
+    "env": "node setup.js",
+    "lint": "eslint ./migrations ./test ",
+    "lint:fix": "eslint ./test ./migrations --fix",
+    "lint:sol": "solium -d .",
+    "lint:sol:fix": "solium -d . --fix",
+    "lint:all": "yarn run lint && yarn run lint:sol",
+    "lint:all:fix": "yarn run lint:fix && yarn run lint:sol:fix",
+    "console": "truffle console",
+    "truffle": "truffle",
+    "version": "scripts/version.js",
+    "remix": "python -mwebbrowser http://localhost:8080 && ./node_modules/remix-ide/bin/remix-ide"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ConsenSys/ERC1400"
+  },
+  "keywords": [
+    "boilerplate",
+    "solidity",
+    "ethereum",
+    "smart",
+    "contracts",
+    "security",
+    "ERC1820",
+    "ERC777",
+    "ERC1410",
+    "ERC1400"
+  ],
+  "author": "Gauthier Petetin <gauthierpetetin@hotmail.com>",
+  "contributors": [
+    "Julien Marchand <julien.marchand4@gmail.com>"
+  ],
+  "license": "Apache",
+  "devDependencies": {
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-2": "^6.18.0",
+    "babel-preset-stage-3": "^6.17.0",
+    "babel-register": "^6.23.0",
+    "chai": "^4.0.2",
+    "chai-as-promised": "^7.0.0",
+    "chai-bignumber": "^2.0.0",
+    "dotenv": "^4.0.0",
+    "eslint": "^4.11.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "ethereumjs-testrpc-sc": "6.1.6",
+    "ethereumjs-util": "^5.1.2",
+    "fs-extra": "^7.0.1",
+    "ganache-cli": "^6.4.0",
+    "husky": "^1.1.3",
+    "lint-staged": "^8.0.4",
+    "openzeppelin-test-helpers": "^0.1.2",
+    "remix-ide": "^0.8.5",
+    "scrypt": "^6.0.3",
+    "secp256k1": "^3.7.1",
+    "sol-merger": "0.1.4",
+    "solidity-coverage": "0.6.0",
+    "solium": "^1.1.8",
+    "solium-plugin-zeppelin": "^0.0.2"
+  },
+  "dependencies": {
+    "erc1820": "git+https://github.com/0xjac/ERC1820#885549fe3e9f0fd22444f78532be3dce4ee8a5e2",
+    "openzeppelin-solidity": "git+https://github.com/OpenZeppelin/openzeppelin-solidity#77d569d8fafe7f39d44386e0083bda26968e534c",
+    "secp256k1": "^3.7.1",
+    "truffle": "5.0.39",
+    "truffle-hdwallet-provider": "1.0.1"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint ./test ./migrations --fix",
+      "git add",
+      "eslint --fix"
+    ],
+    "*.sol": [
+      "solium -d . --fix",
+      "git add"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+    "private": {
+        "node": "https://dev.ethereum-lyon.fr",
+        "mnemonic": ""
+    },
+    "ropsten": {
+        "node": "https://ropsten.infura.io/v3",
+        "mnemonic": "",
+        "key": "",
+        "solidityCoverage":""
+    },
+    "goerli": {
+        "node": "https://ropsten.infura.io/v3",
+        "mnemonic": "",
+        "key": "",
+        "solidityCoverage":""
+    },
+    "kovan": {
+        "node": "https://kovan.infura.io/v3",
+        "mnemonic": "",
+        "key": "",
+        "solidityCoverage":""
+    },
+    "mainnet": {
+        "node": "https://mainnet.infura.io/v3",
+        "mnemonic": "",
+        "key": "",
+        "solidityCoverage":""
+    }
+}
